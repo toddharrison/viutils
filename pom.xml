@@ -4,22 +4,30 @@
 
     <groupId>net.visualillusionsent</groupId>
     <artifactId>viutils</artifactId>
-    <version>1.4.3-SNAPSHOT</version>
+    <version>1.4.3</version>
     <packaging>jar</packaging>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>dd MMMM yyyy HH:mm z</maven.build.timestamp.format>
+        <!--
         <program.version>1.4.2-SNAPSHOT</program.version>
         <program.status>SNAPSHOT</program.status>
+        -->
     </properties>
+
     <name>VIUtils</name>
     <description>Visual Illusions Entertainment Java Utilities Library</description>
+    <!--
     <url>http://wiki.visualillusionsent.net/view/VIUtils</url>
+    -->
     <inceptionYear>2012</inceptionYear>
+    <!--
     <organization>
         <name>Visual Illusions Entertainment</name>
         <url>http://visualillusionsent.net/</url>
     </organization>
+    -->
     <licenses>
         <license>
             <name>GNU Lesser General Public License v3</name>
@@ -36,6 +44,7 @@
             </comments>
         </license>
     </licenses>
+    <!--
     <developers>
         <developer>
             <id>darkdiplomat</id>
@@ -43,6 +52,17 @@
             <email>darkdiplomat@visualillusionsent.net</email>
         </developer>
     </developers>
+    -->
+    <scm>
+        <connection>scm:git:git@github.com:toddharrison/viutils.git</connection>
+        <developerConnection>scm:git:git@github.com:toddharrison/viutils.git</developerConnection>
+        <url>https://github.com/toddharrison/viutils/</url>
+    </scm>
+    <issueManagement>
+        <url>https://github.com/toddharrison/viutils/issues</url>
+        <system>GitHub</system>
+    </issueManagement>
+    <!--
     <scm>
         <connection>scm:git:git@github.com:Visual-Illusions/viutils.git</connection>
         <developerConnection>scm:git:git@github.com:Visual-Illusions/viutils.git</developerConnection>
@@ -63,15 +83,17 @@
             <url>http://repo.visualillusionsent.net/repository/public/</url>
         </repository>
     </distributionManagement>
+    -->
     <!-- testing -->
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <defaultGoal>clean install</defaultGoal>
         <resources>
@@ -183,6 +205,7 @@
             </plugin>
         </plugins>
     </build>
+
     <profiles>
         <profile>
             <id>docs-sources</id>
