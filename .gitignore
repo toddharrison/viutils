@@ -12,5 +12,7 @@ release.sh
 pom.xml.bak
 pom.xml.dev.bak
 
+.gradle/
 gradle.properties
+build/
 

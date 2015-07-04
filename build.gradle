@@ -2,6 +2,8 @@
 // bintray_user
 // bintray_api_key
 
+// gradle build -Pbuild_number=1
+
 buildscript {
     repositories {
         jcenter()
@@ -18,7 +20,7 @@ apply plugin: 'com.jfrog.bintray'
 
 group = 'net.visualillusionsent'
 archivesBaseName = 'viutils'
-version = '1.4.3'
+version = '1.4.3.' + build_number
 
 compileJava.options.encoding = 'UTF-8'
 sourceCompatibility = 1.6
