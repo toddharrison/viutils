@@ -1,0 +1,83 @@
+// In gradle.properties, define:
+// bintray_user
+// bintray_api_key
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+apply plugin: 'idea'
+apply plugin: 'com.jfrog.bintray'
+
+group = 'net.visualillusionsent'
+archivesBaseName = 'viutils'
+version = '1.4.3'
+
+compileJava.options.encoding = 'UTF-8'
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+jar {
+    manifest {
+        attributes 'Created-By': 'Gradle',
+                   'Implementation-Title': project.name,
+                   'Implementation-Version': version
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar, javadocJar
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+bintray {
+    user = bintray_user
+    key = bintray_api_key
+    publications = ['mavenJava']
+    dryRun = false
+    publish = true
+    pkg {
+        repo = 'CanaryMod'
+        name = 'viutils'
+        vcsUrl = 'https://github.com/toddharrison/viutils.git'
+        licenses = ['LGPL-3.0']
+        version {
+            name = project.version
+        }
+    }
+}
